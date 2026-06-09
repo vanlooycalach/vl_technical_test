@@ -28,7 +28,7 @@ Copy-Item .env.example .env
 Crea un fichero `.env` en la raíz del proyecto:
 
 ```env
-NG_APP_API_URL=https://itx-frontend-test.onrender.com
+NG_APP_API_URL= API_URL_TEST
 ```
 
 La app lee esa variable en build time con `@ngx-env/builder` y la usa en los servicios HTTP.

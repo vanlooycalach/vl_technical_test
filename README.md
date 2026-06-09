@@ -25,6 +25,14 @@ npm install
 | `npm test` | Tests unitarios |
 | `npm run lint` | Revisión ESLint |
 
+## API
+
+Base URL: `https://itx-frontend-test.onrender.com`
+
+Configurada en `src/environments/`.
+
 ## Notas
 
 Proyecto generado con Angular CLI. Routing en cliente (SPA, sin SSR).
+
+Las respuestas del API se guardan en cache local con caducidad de 1 hora. El contador del carrito se persiste en el navegador.

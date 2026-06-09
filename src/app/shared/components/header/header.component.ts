@@ -1,16 +1,20 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
+import { CartService } from '../../../core/services/cart.service';
+
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [AsyncPipe, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   private readonly router = inject(Router);
+  private readonly cartService = inject(CartService);
 
-  cartCount = 0;
+  readonly cartCount$ = this.cartService.cartCount$;
 
   get isDetailPage(): boolean {
     return this.router.url.startsWith('/product/');

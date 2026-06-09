@@ -12,7 +12,8 @@
     "searchPlaceholder": "Search by brand or model",
     "loading": "Loading products...",
     "error": "Products could not be loaded.",
-    "empty": "No products available."
+    "empty": "No products available.",
+    "noResults": "No products match your search."
   },
   "productItem": {
     "priceUnavailable": "Price unavailable"

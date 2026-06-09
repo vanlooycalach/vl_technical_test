@@ -1,6 +1,14 @@
 <section class="list-view">
   <div class="list-view__toolbar">
-    <div class="search-placeholder">{{ 'list.searchPlaceholder' | translate }}</div>
+    <label class="search">
+      <span class="search__label">{{ 'list.searchPlaceholder' | translate }}</span>
+      <input
+        class="search__input"
+        type="search"
+        [(ngModel)]="searchQuery"
+        [placeholder]="'list.searchPlaceholder' | translate"
+      />
+    </label>
   </div>
 
   @if (loading) {
@@ -9,11 +17,13 @@
     <p class="list-view__message list-view__message--error">
       {{ 'list.error' | translate }}
     </p>
-  } @else if (products.length === 0) {
+  } @else if (allProducts.length === 0) {
     <p class="list-view__message">{{ 'list.empty' | translate }}</p>
+  } @else if (filteredProducts.length === 0) {
+    <p class="list-view__message">{{ 'list.noResults' | translate }}</p>
   } @else {
     <div class="product-grid">
-      @for (product of products; track product.id) {
+      @for (product of filteredProducts; track product.id) {
         <app-product-item [product]="product" />
       }
     </div>

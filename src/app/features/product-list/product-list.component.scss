@@ -4,13 +4,23 @@
   margin-bottom: 1.5rem;
 }
 
-.search-placeholder {
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
   min-width: 260px;
+}
+
+.search__label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.search__input {
   padding: 0.5rem 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  color: #666;
-  background: #fff;
+  font: inherit;
 }
 
 .list-view__message {

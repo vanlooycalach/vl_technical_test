@@ -12,7 +12,8 @@
     "searchPlaceholder": "Buscar por marca o modelo",
     "loading": "Cargando productos...",
     "error": "No se pudieron cargar los productos.",
-    "empty": "No hay productos disponibles."
+    "empty": "No hay productos disponibles.",
+    "noResults": "No hay productos que coincidan con la búsqueda."
   },
   "productItem": {
     "priceUnavailable": "Precio no disponible"

@@ -1,0 +1,44 @@
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: inherit;
+}
+
+.detail-view {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .detail-view {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detail-view__image,
+.detail-view__description,
+.detail-view__actions {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.detail-view__image {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+.detail-view__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-view__actions button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+}

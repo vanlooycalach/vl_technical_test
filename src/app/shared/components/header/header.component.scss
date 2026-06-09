@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  background: #f5f8fc;
+}
+
+.header__logo {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.header__breadcrumbs {
+  flex: 1;
+}
+
+.header__breadcrumbs a {
+  color: inherit;
+}
+
+.header__cart {
+  font-weight: 600;
+}

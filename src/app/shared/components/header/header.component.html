@@ -1,0 +1,14 @@
+<header class="header">
+  <a class="header__logo" routerLink="/">ITX Mobile Shop</a>
+
+  <nav class="header__breadcrumbs" aria-label="Miga de pan">
+    @if (isDetailPage) {
+      <a routerLink="/">Productos</a>
+      <span> / Detalle</span>
+    } @else {
+      <span>Productos</span>
+    }
+  </nav>
+
+  <span class="header__cart">Carrito ({{ cartCount }})</span>
+</header>

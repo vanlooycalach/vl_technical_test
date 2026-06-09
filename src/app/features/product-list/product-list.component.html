@@ -1,0 +1,14 @@
+<section class="list-view">
+  <div class="list-view__toolbar">
+    <div class="search-placeholder">Buscar por marca o modelo</div>
+  </div>
+
+  <div class="product-grid">
+    @for (item of [1, 2, 3, 4, 5, 6, 7, 8]; track item) {
+      <article class="product-item product-item--placeholder">
+        <div class="product-item__image"></div>
+        <p>Producto {{ item }}</p>
+      </article>
+    }
+  </div>
+</section>

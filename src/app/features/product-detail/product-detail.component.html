@@ -1,22 +1,84 @@
-<a class="back-link" routerLink="/">Volver al listado</a>
+<a class="back-link" routerLink="/">{{ 'detail.backToList' | translate }}</a>
 
-<section class="detail-view">
-  <div class="detail-view__image">Imagen del producto</div>
-
-  <div class="detail-view__content">
-    <div class="detail-view__description">
-      <h1>Descripción</h1>
-      <ul>
-        <li>Marca</li>
-        <li>Modelo</li>
-        <li>Precio</li>
-      </ul>
+@if (loading) {
+  <p class="detail-view__message">{{ 'detail.loading' | translate }}</p>
+} @else if (error || !product) {
+  <p class="detail-view__message detail-view__message--error">
+    {{ 'detail.error' | translate }}
+  </p>
+} @else {
+  <section class="detail-view">
+    <div class="detail-view__image">
+      <img [src]="product.imgUrl" [alt]="product.brand + ' ' + product.model" />
     </div>
 
-    <div class="detail-view__actions">
-      <h2>Acciones</h2>
-      <p>Almacenamiento y color</p>
-      <button type="button">Añadir</button>
+    <div class="detail-view__content">
+      <div class="detail-view__description">
+        <h1>{{ product.brand }} {{ product.model }}</h1>
+        <dl class="spec-list">
+          <div>
+            <dt>{{ 'detail.specs.brand' | translate }}</dt>
+            <dd>{{ product.brand }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.model' | translate }}</dt>
+            <dd>{{ product.model }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.price' | translate }}</dt>
+            <dd>
+              @if (formatPrice(product.price); as priceValue) {
+                {{ priceValue | currency: 'EUR' : 'symbol' : '1.0-0' }}
+              } @else {
+                {{ 'detail.specs.unavailable' | translate }}
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.cpu' | translate }}</dt>
+            <dd>{{ product.cpu }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.ram' | translate }}</dt>
+            <dd>{{ product.ram }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.os' | translate }}</dt>
+            <dd>{{ product.os }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.screen' | translate }}</dt>
+            <dd>{{ product.displaySize }} · {{ product.displayResolution }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.battery' | translate }}</dt>
+            <dd>{{ product.battery }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.cameras' | translate }}</dt>
+            <dd>
+              {{ 'detail.specs.primaryCamera' | translate }}:
+              {{ formatList(product.primaryCamera) }} ·
+              {{ 'detail.specs.secondaryCamera' | translate }}:
+              {{ formatList(product.secondaryCmera) }}
+            </dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.dimensions' | translate }}</dt>
+            <dd>{{ product.dimentions }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'detail.specs.weight' | translate }}</dt>
+            <dd>{{ product.weight }} {{ 'detail.specs.weightUnit' | translate }}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="detail-view__actions">
+        <h2>{{ 'detail.actions.title' | translate }}</h2>
+        <p>{{ 'detail.actions.placeholder' | translate }}</p>
+        <button type="button" disabled>{{ 'detail.actions.add' | translate }}</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+}

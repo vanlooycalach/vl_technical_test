@@ -47,3 +47,5 @@ La app lee esa variable en build time con `@ngx-env/builder` y la usa en los ser
 Proyecto generado con Angular CLI. Routing en cliente (SPA, sin SSR).
 
 Las respuestas del API se guardan en cache local con caducidad de 1 hora. El contador del carrito se persiste en el navegador.
+
+Traducciones en `public/i18n/es.json` y `public/i18n/en.json` (ngx-translate). El idioma se detecta automáticamente desde el navegador.

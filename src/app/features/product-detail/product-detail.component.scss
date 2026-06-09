@@ -4,6 +4,16 @@
   color: inherit;
 }
 
+.detail-view__message {
+  margin: 2rem 0;
+  text-align: center;
+  color: #666;
+}
+
+.detail-view__message--error {
+  color: #b00020;
+}
+
 .detail-view {
   display: grid;
   gap: 1.5rem;
@@ -25,11 +35,17 @@
 }
 
 .detail-view__image {
-  min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eee;
+  min-height: 280px;
+  background: #f7f7f7;
+}
+
+.detail-view__image img {
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
 }
 
 .detail-view__content {
@@ -38,7 +54,45 @@
   gap: 1rem;
 }
 
+.detail-view__description h1 {
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+
+.spec-list {
+  margin: 0;
+}
+
+.spec-list div {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.spec-list dt {
+  margin: 0;
+  font-weight: 600;
+}
+
+.spec-list dd {
+  margin: 0;
+}
+
 .detail-view__actions button {
   margin-top: 0.75rem;
   padding: 0.5rem 1rem;
+}
+
+.detail-view__actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+  .spec-list div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
 }

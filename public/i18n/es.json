@@ -1,0 +1,47 @@
+{
+  "app": {
+    "title": "ITX Mobile Shop"
+  },
+  "header": {
+    "breadcrumbLabel": "Miga de pan",
+    "products": "Productos",
+    "detail": "Detalle",
+    "cart": "Carrito"
+  },
+  "list": {
+    "searchPlaceholder": "Buscar por marca o modelo",
+    "loading": "Cargando productos...",
+    "error": "No se pudieron cargar los productos.",
+    "empty": "No hay productos disponibles."
+  },
+  "productItem": {
+    "priceUnavailable": "Precio no disponible"
+  },
+  "detail": {
+    "backToList": "Volver al listado",
+    "loading": "Cargando producto...",
+    "error": "No se pudo cargar el producto.",
+    "specs": {
+      "brand": "Marca",
+      "model": "Modelo",
+      "price": "Precio",
+      "unavailable": "No disponible",
+      "cpu": "CPU",
+      "ram": "RAM",
+      "os": "Sistema operativo",
+      "screen": "Resolución de pantalla",
+      "battery": "Batería",
+      "cameras": "Cámaras",
+      "primaryCamera": "Principal",
+      "secondaryCamera": "Secundaria",
+      "dimensions": "Dimensiones",
+      "weight": "Peso",
+      "weightUnit": "g"
+    },
+    "actions": {
+      "title": "Acciones",
+      "placeholder": "Selección de almacenamiento y color (fase siguiente).",
+      "add": "Añadir"
+    }
+  }
+}

@@ -13,6 +13,16 @@
   background: #fff;
 }
 
+.list-view__message {
+  margin: 2rem 0;
+  text-align: center;
+  color: #666;
+}
+
+.list-view__message--error {
+  color: #b00020;
+}
+
 .product-grid {
   display: grid;
   gap: 1rem;
@@ -23,21 +33,4 @@
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-
-.product-item {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 0.75rem;
-  background: #fff;
-}
-
-.product-item__image {
-  aspect-ratio: 1;
-  margin-bottom: 0.75rem;
-  background: #eee;
-}
-
-.product-item--placeholder {
-  color: #666;
 }

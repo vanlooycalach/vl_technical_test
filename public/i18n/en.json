@@ -1,0 +1,47 @@
+{
+  "app": {
+    "title": "ITX Mobile Shop"
+  },
+  "header": {
+    "breadcrumbLabel": "Breadcrumb",
+    "products": "Products",
+    "detail": "Detail",
+    "cart": "Cart"
+  },
+  "list": {
+    "searchPlaceholder": "Search by brand or model",
+    "loading": "Loading products...",
+    "error": "Products could not be loaded.",
+    "empty": "No products available."
+  },
+  "productItem": {
+    "priceUnavailable": "Price unavailable"
+  },
+  "detail": {
+    "backToList": "Back to list",
+    "loading": "Loading product...",
+    "error": "Product could not be loaded.",
+    "specs": {
+      "brand": "Brand",
+      "model": "Model",
+      "price": "Price",
+      "unavailable": "Unavailable",
+      "cpu": "CPU",
+      "ram": "RAM",
+      "os": "Operating system",
+      "screen": "Screen resolution",
+      "battery": "Battery",
+      "cameras": "Cameras",
+      "primaryCamera": "Primary",
+      "secondaryCamera": "Secondary",
+      "dimensions": "Dimensions",
+      "weight": "Weight",
+      "weightUnit": "g"
+    },
+    "actions": {
+      "title": "Actions",
+      "placeholder": "Storage and color selection (next phase).",
+      "add": "Add"
+    }
+  }
+}

@@ -1,14 +1,16 @@
 <header class="header">
-  <a class="header__logo" routerLink="/">ITX Mobile Shop</a>
+  <a class="header__logo" routerLink="/">{{ 'app.title' | translate }}</a>
 
-  <nav class="header__breadcrumbs" aria-label="Miga de pan">
+  <nav class="header__breadcrumbs" [attr.aria-label]="'header.breadcrumbLabel' | translate">
     @if (isDetailPage) {
-      <a routerLink="/">Productos</a>
-      <span> / Detalle</span>
+      <a routerLink="/">{{ 'header.products' | translate }}</a>
+      <span> / {{ 'header.detail' | translate }}</span>
     } @else {
-      <span>Productos</span>
+      <span>{{ 'header.products' | translate }}</span>
     }
   </nav>
 
-  <span class="header__cart">Carrito ({{ cartCount$ | async }})</span>
+  <span class="header__cart">
+    {{ 'header.cart' | translate }} ({{ cartCount$ | async }})
+  </span>
 </header>

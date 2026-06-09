@@ -1,12 +1,13 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
-  imports: [AsyncPipe, RouterLink],
+  imports: [AsyncPipe, RouterLink, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

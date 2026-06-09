@@ -25,16 +25,6 @@ npm install
 | `npm test` | Tests unitarios |
 | `npm run lint` | Revisión ESLint |
 
-## API
-
-La app consume la API de la prueba:
-
-```
-https://itx-frontend-test.onrender.com
-```
-
-La URL está en `src/environments/`.
-
 ## Notas
 
 Proyecto generado con Angular CLI. Routing en cliente (SPA, sin SSR).

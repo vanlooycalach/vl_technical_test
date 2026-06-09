@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
+import { API_URL } from '../config/api-url';
 import {
   AddToCartPayload,
   AddToCartResponse,
@@ -15,7 +15,7 @@ const CART_COUNT_KEY = 'itx_cart_count';
 })
 export class CartService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = environment.apiUrl;
+  private readonly apiUrl = API_URL;
   private readonly cartCountSubject = new BehaviorSubject<number>(
     this.readStoredCount(),
   );

@@ -14,7 +14,24 @@ El código está en la carpeta `prueba_tecnica_vanlooy`.
 ```bash
 cd prueba_tecnica_vanlooy
 npm install
+copy .env.example .env
 ```
+
+En PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+## Variables de entorno
+
+Crea un fichero `.env` en la raíz del proyecto:
+
+```env
+NG_APP_API_URL=https://itx-frontend-test.onrender.com
+```
+
+La app lee esa variable en build time con `@ngx-env/builder` y la usa en los servicios HTTP.
 
 ## Scripts
 
@@ -24,12 +41,6 @@ npm install
 | `npm run build` | Build de producción |
 | `npm test` | Tests unitarios |
 | `npm run lint` | Revisión ESLint |
-
-## API
-
-Base URL: `https://itx-frontend-test.onrender.com`
-
-Configurada en `src/environments/`.
 
 ## Notas
 

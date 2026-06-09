@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, tap } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
+import { API_URL } from '../config/api-url';
 import { ProductDetail, ProductListItem } from '../models/product.model';
 import { CacheService } from './cache.service';
 
@@ -12,7 +12,7 @@ import { CacheService } from './cache.service';
 export class ProductService {
   private readonly http = inject(HttpClient);
   private readonly cache = inject(CacheService);
-  private readonly apiUrl = environment.apiUrl;
+  private readonly apiUrl = API_URL;
 
   getProducts(): Observable<ProductListItem[]> {
     const cacheKey = 'products';

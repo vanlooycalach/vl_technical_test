@@ -5,10 +5,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 import { BreadcrumbService } from '../../../core/services/breadcrumb.service';
 import { CartService } from '../../../core/services/cart.service';
+import { AppIconComponent } from '../app-icon/app-icon.component';
 
 @Component({
   selector: 'app-header',
-  imports: [AsyncPipe, RouterLink, TranslatePipe],
+  imports: [AppIconComponent, AsyncPipe, RouterLink, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

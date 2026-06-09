@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { ProductListItem } from '../../../core/models/product.model';
+import { AppIconComponent } from '../app-icon/app-icon.component';
 
 @Component({
   selector: 'app-product-item',
-  imports: [CurrencyPipe, RouterLink, TranslatePipe],
+  imports: [AppIconComponent, CurrencyPipe, RouterLink, TranslatePipe],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.scss',
 })

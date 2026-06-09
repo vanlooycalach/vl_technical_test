@@ -5,11 +5,12 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { ProductListItem } from '../../core/models/product.model';
 import { ProductService } from '../../core/services/product.service';
 import { filterProductsByQuery } from '../../core/utils/product-filter';
+import { AppIconComponent } from '../../shared/components/app-icon/app-icon.component';
 import { ProductItemComponent } from '../../shared/components/product-item/product-item.component';
 
 @Component({
   selector: 'app-product-list',
-  imports: [FormsModule, ProductItemComponent, TranslatePipe],
+  imports: [AppIconComponent, FormsModule, ProductItemComponent, TranslatePipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })

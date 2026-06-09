@@ -1,26 +1,120 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
-  background: #f5f8fc;
+  gap: 0.75rem 1.25rem;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 60%);
+  background: rgb(255 255 255 / 82%);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+    padding: 1rem 1.5rem;
+  }
 }
 
 .header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: inherit;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
   text-decoration: none;
+  transition: color var(--transition);
+
+  app-icon {
+    color: var(--color-primary);
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: var(--color-primary);
+  }
 }
 
 .header__breadcrumbs {
-  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1 1 100%;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+
+  @media (min-width: 768px) {
+    flex: 1;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+  }
 }
 
-.header__breadcrumbs a {
-  color: inherit;
+.header__breadcrumb-sep {
+  color: var(--color-border);
+}
+
+.header__breadcrumb-current {
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .header__cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
+  padding: 0.35rem 0.35rem 0.35rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+
+  app-icon {
+    color: var(--color-primary);
+  }
+}
+
+.header__cart-label {
+  font-size: 0.85rem;
   font-weight: 600;
+  color: var(--color-muted);
+  white-space: nowrap;
+
+  @media (max-width: 479px) {
+    display: none;
+  }
+}
+
+.header__cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
 }

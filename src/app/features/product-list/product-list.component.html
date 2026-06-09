@@ -1,26 +1,42 @@
 <section class="list-view">
   <div class="list-view__toolbar">
     <label class="search">
-      <span class="search__label">{{ 'list.searchPlaceholder' | translate }}</span>
-      <input
-        class="search__input"
-        type="search"
-        [(ngModel)]="searchQuery"
-        [placeholder]="'list.searchPlaceholder' | translate"
-      />
+      <span class="search__label">
+        <app-icon name="search" size="sm" />
+        {{ 'list.searchPlaceholder' | translate }}
+      </span>
+      <span class="search__field">
+        <app-icon class="search__icon" name="search" size="sm" />
+        <input
+          class="search__input"
+          type="search"
+          [(ngModel)]="searchQuery"
+          [placeholder]="'list.searchPlaceholder' | translate"
+        />
+      </span>
     </label>
   </div>
 
   @if (loading) {
-    <p class="list-view__message">{{ 'list.loading' | translate }}</p>
+    <p class="ui-message ui-message--loading">
+      <app-icon name="loader" size="lg" [spin]="true" />
+      {{ 'list.loading' | translate }}
+    </p>
   } @else if (error) {
-    <p class="list-view__message list-view__message--error">
+    <p class="ui-message ui-message--error">
+      <app-icon name="alert" size="lg" />
       {{ 'list.error' | translate }}
     </p>
   } @else if (allProducts.length === 0) {
-    <p class="list-view__message">{{ 'list.empty' | translate }}</p>
+    <p class="ui-message">
+      <app-icon name="inbox" size="lg" />
+      {{ 'list.empty' | translate }}
+    </p>
   } @else if (filteredProducts.length === 0) {
-    <p class="list-view__message">{{ 'list.noResults' | translate }}</p>
+    <p class="ui-message">
+      <app-icon name="search-x" size="lg" />
+      {{ 'list.noResults' | translate }}
+    </p>
   } @else {
     <div class="product-grid">
       @for (product of filteredProducts; track product.id) {

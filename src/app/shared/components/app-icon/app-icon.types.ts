@@ -1,0 +1,15 @@
+export type AppIconName =
+  | 'smartphone'
+  | 'cart'
+  | 'search'
+  | 'grid'
+  | 'arrow-left'
+  | 'storage'
+  | 'palette'
+  | 'cart-plus'
+  | 'loader'
+  | 'alert'
+  | 'inbox'
+  | 'search-x'
+  | 'chevron-right'
+  | 'tag';

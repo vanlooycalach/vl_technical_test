@@ -1,5 +1,10 @@
 .main-content {
-  max-width: 1200px;
+  width: min(100%, var(--content-width));
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 1.25rem 1rem 2.5rem;
+  animation: fade-up 0.4s ease both;
+
+  @media (min-width: 768px) {
+    padding: 1.75rem 1.5rem 3rem;
+  }
 }

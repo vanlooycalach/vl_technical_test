@@ -1,0 +1,45 @@
+:host {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 0;
+  color: currentColor;
+}
+
+svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:host(.app-icon--sm) svg {
+  width: 16px;
+  height: 16px;
+}
+
+:host(.app-icon--md) svg {
+  width: 20px;
+  height: 20px;
+}
+
+:host(.app-icon--lg) svg {
+  width: 24px;
+  height: 24px;
+}
+
+:host(.app-icon--spin) svg {
+  animation: icon-spin 0.85s linear infinite;
+}
+
+@keyframes icon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.app-icon--spin) svg {
+    animation: none;
+  }
+}

@@ -10,10 +10,11 @@ import { BreadcrumbService } from '../../core/services/breadcrumb.service';
 import { CartService } from '../../core/services/cart.service';
 import { ProductService } from '../../core/services/product.service';
 import { formatList } from '../../core/utils/product-format';
+import { AppIconComponent } from '../../shared/components/app-icon/app-icon.component';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CurrencyPipe, FormsModule, RouterLink, TranslatePipe],
+  imports: [AppIconComponent, CurrencyPipe, FormsModule, RouterLink, TranslatePipe],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })

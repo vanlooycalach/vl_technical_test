@@ -1,18 +1,28 @@
 <a class="product-item" [routerLink]="['/product', product().id]">
-  <img
-    class="product-item__image"
-    [src]="product().imgUrl"
-    [alt]="product().brand + ' ' + product().model"
-  />
+  <div class="product-item__image-wrap">
+    <img
+      class="product-item__image"
+      [src]="product().imgUrl"
+      [alt]="product().brand + ' ' + product().model"
+    />
+  </div>
 
-  <p class="product-item__brand">{{ product().brand }}</p>
-  <p class="product-item__model">{{ product().model }}</p>
+  <div class="product-item__body">
+    <p class="product-item__brand">{{ product().brand }}</p>
+    <p class="product-item__model">{{ product().model }}</p>
 
-  @if (formatPrice(product().price); as priceValue) {
-    <p class="product-item__price">{{ priceValue | currency: 'EUR' : 'symbol' : '1.0-0' }}</p>
-  } @else {
-    <p class="product-item__price product-item__price--empty">
-      {{ 'productItem.priceUnavailable' | translate }}
-    </p>
-  }
+    <div class="product-item__footer">
+      @if (formatPrice(product().price); as priceValue) {
+        <p class="product-item__price inline-icon-row">
+          <app-icon name="tag" size="sm" />
+          {{ priceValue | currency: 'EUR' : 'symbol' : '1.0-0' }}
+        </p>
+      } @else {
+        <p class="product-item__price product-item__price--empty">
+          {{ 'productItem.priceUnavailable' | translate }}
+        </p>
+      }
+      <app-icon class="product-item__arrow" name="chevron-right" size="sm" />
+    </div>
+  </div>
 </a>

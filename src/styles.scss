@@ -1,10 +1,141 @@
+:root {
+  --color-bg: #eef1f6;
+  --color-bg-accent: #e4e9f2;
+  --color-surface: #fff;
+  --color-border: #d8dee8;
+  --color-text: #121820;
+  --color-muted: #64748b;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-soft: rgb(37 99 235 / 10%);
+  --color-error: #dc2626;
+  --color-error-soft: rgb(220 38 38 / 8%);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 6%), 0 1px 3px rgb(15 23 42 / 8%);
+  --shadow-md: 0 8px 24px rgb(15 23 42 / 10%), 0 2px 6px rgb(15 23 42 / 6%);
+  --shadow-lg: 0 16px 40px rgb(15 23 42 / 12%);
+  --content-width: 1200px;
+  --header-height: 64px;
+  --transition: 0.2s ease;
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgb(37 99 235 / 8%), transparent),
+    linear-gradient(180deg, var(--color-bg) 0%, #e8ecf2 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.inline-icon-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ui-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  box-shadow: var(--shadow-sm);
+
+  app-icon {
+    color: var(--color-primary);
+  }
+}
+
+.ui-message--loading {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+.ui-message--error {
+  color: var(--color-error);
+  border-color: rgb(220 38 38 / 25%);
+  background: var(--color-error-soft);
+
+  app-icon {
+    color: var(--color-error);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

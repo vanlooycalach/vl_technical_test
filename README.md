@@ -45,6 +45,33 @@ Lo básico que pedía la prueba:
 - Traducciones ES/EN con ngx-translate (el idioma lo coge del navegador)
 - Algunos tests de filtro, caché y carrito
 - Un servicio pequeño para mostrar el nombre del producto en el breadcrumb
+- Estilos responsive y algo de UI extra (ver abajo)
+
+## Estilos e interfaz
+
+Le di un poco de cariño visual a la app para que no se quedara en HTML pelado:
+
+### Listado responsive
+
+La rejilla de productos cambia según el ancho de pantalla:
+
+| Pantalla | Columnas |
+|----------|----------|
+| Móvil | 2 |
+| Tablet (768px+) | 3 |
+| Escritorio (1024px+) | 4 |
+
+Las tarjetas tienen sombra, hover suave y la imagen hace un zoom leve al pasar el ratón.
+
+### Detalle responsive
+
+- En móvil todo va en una columna: imagen, datos y acciones
+- A partir de tablet son dos columnas; la imagen se queda fija al hacer scroll
+- En escritorio las columnas quedan a 50/50
+
+### Iconos
+
+Hay un componente propio `app-icon` con SVGs inline (sin librería externa). Lo uso en el header, la búsqueda, el carrito, los botones, los estados de carga/error y las tarjetas del listado.
 
 ## Lo del carrito (y por qué tuve que hacer un apaño)
 

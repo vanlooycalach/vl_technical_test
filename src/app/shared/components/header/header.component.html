@@ -1,20 +1,31 @@
 <header class="header">
-  <a class="header__logo" routerLink="/">{{ 'app.title' | translate }}</a>
+  <a class="header__logo" routerLink="/">
+    <app-icon name="smartphone" size="sm" />
+    <span>{{ 'app.title' | translate }}</span>
+  </a>
 
   <nav class="header__breadcrumbs" [attr.aria-label]="'header.breadcrumbLabel' | translate">
     @if (isDetailPage) {
-      <a routerLink="/">{{ 'header.products' | translate }}</a>
+      <a routerLink="/">
+        <app-icon name="grid" size="sm" />
+        <span>{{ 'header.products' | translate }}</span>
+      </a>
       @if (productLabel$ | async; as productLabel) {
-        <span> / {{ productLabel }}</span>
+        <app-icon class="header__breadcrumb-sep" name="chevron-right" size="sm" />
+        <span class="header__breadcrumb-current">{{ productLabel }}</span>
       } @else {
-        <span> / {{ 'header.detail' | translate }}</span>
+        <app-icon class="header__breadcrumb-sep" name="chevron-right" size="sm" />
+        <span class="header__breadcrumb-current">{{ 'header.detail' | translate }}</span>
       }
     } @else {
-      <span>{{ 'header.products' | translate }}</span>
+      <app-icon name="grid" size="sm" />
+      <span class="header__breadcrumb-current">{{ 'header.products' | translate }}</span>
     }
   </nav>
 
-  <span class="header__cart">
-    {{ 'header.cart' | translate }} ({{ cartCount$ | async }})
-  </span>
+  <div class="header__cart">
+    <app-icon name="cart" size="sm" />
+    <span class="header__cart-label">{{ 'header.cart' | translate }}</span>
+    <span class="header__cart-count">{{ cartCount$ | async }}</span>
+  </div>
 </header>

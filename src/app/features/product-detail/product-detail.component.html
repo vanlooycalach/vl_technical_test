@@ -1,9 +1,16 @@
-<a class="back-link" routerLink="/">{{ 'detail.backToList' | translate }}</a>
+<a class="back-link inline-icon-row" routerLink="/">
+  <app-icon name="arrow-left" size="sm" />
+  {{ 'detail.backToList' | translate }}
+</a>
 
 @if (loading) {
-  <p class="detail-view__message">{{ 'detail.loading' | translate }}</p>
+  <p class="ui-message ui-message--loading">
+    <app-icon name="loader" size="lg" [spin]="true" />
+    {{ 'detail.loading' | translate }}
+  </p>
 } @else if (error || !product) {
-  <p class="detail-view__message detail-view__message--error">
+  <p class="ui-message ui-message--error">
+    <app-icon name="alert" size="lg" />
     {{ 'detail.error' | translate }}
   </p>
 } @else {
@@ -14,7 +21,16 @@
 
     <div class="detail-view__content">
       <div class="detail-view__description">
-        <h1>{{ product.brand }} {{ product.model }}</h1>
+        <p class="detail-view__brand">{{ product.brand }}</p>
+        <h1>{{ product.model }}</h1>
+
+        @if (formatPrice(product.price); as priceValue) {
+          <p class="detail-view__price inline-icon-row">
+            <app-icon name="tag" size="sm" />
+            {{ priceValue | currency: 'EUR' : 'symbol' : '1.0-0' }}
+          </p>
+        }
+
         <dl class="spec-list">
           <div>
             <dt>{{ 'detail.specs.brand' | translate }}</dt>
@@ -27,8 +43,8 @@
           <div>
             <dt>{{ 'detail.specs.price' | translate }}</dt>
             <dd>
-              @if (formatPrice(product.price); as priceValue) {
-                {{ priceValue | currency: 'EUR' : 'symbol' : '1.0-0' }}
+              @if (formatPrice(product.price); as specPrice) {
+                {{ specPrice | currency: 'EUR' : 'symbol' : '1.0-0' }}
               } @else {
                 {{ 'detail.specs.unavailable' | translate }}
               }
@@ -75,10 +91,16 @@
       </div>
 
       <div class="detail-view__actions">
-        <h2>{{ 'detail.actions.title' | translate }}</h2>
+        <h2 class="inline-icon-row detail-view__actions-title">
+          <app-icon name="cart" size="sm" />
+          {{ 'detail.actions.title' | translate }}
+        </h2>
 
         <label class="action-field">
-          <span>{{ 'detail.actions.storage' | translate }}</span>
+          <span class="action-field__label inline-icon-row">
+            <app-icon name="storage" size="sm" />
+            {{ 'detail.actions.storage' | translate }}
+          </span>
           <select [(ngModel)]="selectedStorageCode">
             @for (storage of product.options.storages; track storage.code) {
               <option [ngValue]="storage.code">{{ storage.name }}</option>
@@ -87,7 +109,10 @@
         </label>
 
         <label class="action-field">
-          <span>{{ 'detail.actions.color' | translate }}</span>
+          <span class="action-field__label inline-icon-row">
+            <app-icon name="palette" size="sm" />
+            {{ 'detail.actions.color' | translate }}
+          </span>
           <select [(ngModel)]="selectedColorCode">
             @for (color of product.options.colors; track color.code) {
               <option [ngValue]="color.code">{{ color.name }}</option>
@@ -96,20 +121,23 @@
         </label>
 
         @if (addError) {
-          <p class="action-message action-message--error">
+          <p class="action-message action-message--error inline-icon-row">
+            <app-icon name="alert" size="sm" />
             {{ 'detail.actions.addError' | translate }}
           </p>
         }
 
         <button
           type="button"
-          class="action-button"
+          class="action-button inline-icon-row"
           [disabled]="adding"
           (click)="addToCart()"
         >
           @if (adding) {
+            <app-icon name="loader" size="sm" [spin]="true" />
             {{ 'detail.actions.adding' | translate }}
           } @else {
+            <app-icon name="cart-plus" size="sm" />
             {{ 'detail.actions.add' | translate }}
           }
         </button>

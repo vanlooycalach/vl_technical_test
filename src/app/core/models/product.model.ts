@@ -23,8 +23,8 @@ export interface ProductDetail extends ProductListItem {
   displaySize: string;
   displayResolution: string;
   battery: string;
-  primaryCamera: string[];
-  secondaryCmera: string[];
+  primaryCamera: string[] | string;
+  secondaryCmera: string[] | string;
   dimentions: string;
   weight: string;
   colors: string[];

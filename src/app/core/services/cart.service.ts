@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 
 import { API_URL } from '../config/api-url';
 import {
@@ -30,8 +30,15 @@ export class CartService {
     return this.http
       .post<AddToCartResponse>(`${this.apiUrl}/api/cart`, payload)
       .pipe(
-        tap((response) => this.saveCount(response.count)),
-        map((response) => response.count),
+        map((response) => {
+          const count =
+            response.count > this.cartCount
+              ? response.count
+              : this.cartCount + 1;
+
+          this.saveCount(count);
+          return count;
+        }),
       );
   }
 

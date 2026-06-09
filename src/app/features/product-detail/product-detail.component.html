@@ -76,8 +76,43 @@
 
       <div class="detail-view__actions">
         <h2>{{ 'detail.actions.title' | translate }}</h2>
-        <p>{{ 'detail.actions.placeholder' | translate }}</p>
-        <button type="button" disabled>{{ 'detail.actions.add' | translate }}</button>
+
+        <label class="action-field">
+          <span>{{ 'detail.actions.storage' | translate }}</span>
+          <select [(ngModel)]="selectedStorageCode">
+            @for (storage of product.options.storages; track storage.code) {
+              <option [ngValue]="storage.code">{{ storage.name }}</option>
+            }
+          </select>
+        </label>
+
+        <label class="action-field">
+          <span>{{ 'detail.actions.color' | translate }}</span>
+          <select [(ngModel)]="selectedColorCode">
+            @for (color of product.options.colors; track color.code) {
+              <option [ngValue]="color.code">{{ color.name }}</option>
+            }
+          </select>
+        </label>
+
+        @if (addError) {
+          <p class="action-message action-message--error">
+            {{ 'detail.actions.addError' | translate }}
+          </p>
+        }
+
+        <button
+          type="button"
+          class="action-button"
+          [disabled]="adding"
+          (click)="addToCart()"
+        >
+          @if (adding) {
+            {{ 'detail.actions.adding' | translate }}
+          } @else {
+            {{ 'detail.actions.add' | translate }}
+          }
+        </button>
       </div>
     </div>
   </section>

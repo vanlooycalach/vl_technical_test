@@ -41,8 +41,11 @@
     },
     "actions": {
       "title": "Acciones",
-      "placeholder": "Selección de almacenamiento y color (fase siguiente).",
-      "add": "Añadir"
+      "storage": "Almacenamiento",
+      "color": "Color",
+      "add": "Añadir",
+      "adding": "Añadiendo...",
+      "addError": "No se pudo añadir al carrito."
     }
   }
 }

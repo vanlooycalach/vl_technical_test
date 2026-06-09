@@ -4,7 +4,11 @@
   <nav class="header__breadcrumbs" [attr.aria-label]="'header.breadcrumbLabel' | translate">
     @if (isDetailPage) {
       <a routerLink="/">{{ 'header.products' | translate }}</a>
-      <span> / {{ 'header.detail' | translate }}</span>
+      @if (productLabel$ | async; as productLabel) {
+        <span> / {{ productLabel }}</span>
+      } @else {
+        <span> / {{ 'header.detail' | translate }}</span>
+      }
     } @else {
       <span>{{ 'header.products' | translate }}</span>
     }

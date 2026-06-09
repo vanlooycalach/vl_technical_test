@@ -80,12 +80,39 @@
   margin: 0;
 }
 
-.detail-view__actions button {
-  margin-top: 0.75rem;
+.action-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.action-field span {
+  font-weight: 600;
+}
+
+.action-field select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.action-message {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+}
+
+.action-message--error {
+  color: #b00020;
+}
+
+.action-button {
+  margin-top: 0.25rem;
   padding: 0.5rem 1rem;
 }
 
-.detail-view__actions button:disabled {
+.action-button:disabled {
   cursor: not-allowed;
   opacity: 0.6;
 }

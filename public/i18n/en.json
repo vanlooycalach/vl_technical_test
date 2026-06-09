@@ -41,8 +41,11 @@
     },
     "actions": {
       "title": "Actions",
-      "placeholder": "Storage and color selection (next phase).",
-      "add": "Add"
+      "storage": "Storage",
+      "color": "Color",
+      "add": "Add",
+      "adding": "Adding...",
+      "addError": "Could not add item to cart."
     }
   }
 }

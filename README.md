@@ -25,9 +25,18 @@ La app arranca en http://localhost:4200
 ## Comandos
 
 - `npm start` — desarrollo
-- `npm run build` — producción
-- `npm test` — tests
+- `npm run build` — producción (falla si falta `NG_APP_API_URL`)
+- `npm test` — tests (también valida el `.env` antes de arrancar)
 - `npm run lint` — eslint
+
+## Validación del entorno
+
+`NG_APP_API_URL` es obligatorio:
+
+- `scripts/check-env.mjs` se ejecuta antes de `test` y `build`
+- `src/app/core/config/api-url.ts` lanza error en runtime si la variable no existe o está vacía
+
+Copia `.env.example` a `.env` y pon la URL real del API.
 
 ## Qué hace la app
 
